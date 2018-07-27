@@ -30,44 +30,40 @@ export default class LogIn extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.wrapper}>
           <View style={styles.logo}>
             <Image source={icLogo} style={styles.logoStyle} />
           </View>
-          <View style={styles.input}>
-            <View style={styles.row}>
-              <View style={styles.sectionStyle}>
+          <View style={styles.formContainer}>
+            <View style={styles.formRound}>
               <Image source={icPerson} style={styles.imageStyle} />
-                <TextInput
-                    style={styles.textInput}
-                    onChangeText={(account) => this.setState({ account })}
-                    placeholder="SỐ ĐIỆN THOẠI"
-                    underlineColorAndroid="transparent"
-                    value={this.state.account}
-                />
-              </View>
+              <TextInput
+                  style={styles.textInput}
+                  onChangeText={(account) => this.setState({ account })}
+                  placeholder="SỐ ĐIỆN THOẠI"
+                  placeholderTextColor="white"
+                  underlineColorAndroid="transparent"
+                  value={this.state.account}
+              />
             </View>
-            <View style={styles.row}>
-              <View style={styles.sectionStyle}>
+            <View style={styles.formRoundBot}>
               <Image source={icPass} style={styles.imageStyle} />
-                <TextInput
-                    style={styles.textInput}
-                    onChangeText={(pass) => this.setState({ pass })}
-                    placeholder="MẬT KHẨU"
-                    underlineColorAndroid="transparent"
-                    secureTextEntry
-                    value={this.state.pass}
-                />
-              </View>
+              <TextInput
+                  style={styles.textInput}
+                  onChangeText={(pass) => this.setState({ pass })}
+                  placeholder="MẬT KHẨU"
+                  placeholderTextColor="white"
+                  underlineColorAndroid="transparent"
+                  secureTextEntry
+                  value={this.state.pass}
+              />
             </View>
           </View>
           <TouchableOpacity
             style={styles.loginBtn}
             onPress={this.gotoHome.bind(this)}
           >
-            <Text style={styles.loginText}>ĐĂNG NHẬP</Text>
-          </TouchableOpacity>
-        </View>
+          <Text style={styles.loginText}>ĐĂNG NHẬP</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -96,36 +92,40 @@ const styles = StyleSheet.create({
     padding: 5
   },
   textInput: {
-    flex: 1
+    flex: 1,
+    fontSize: 12,
+    padding: 0
   },
-  input: {
-    height: 100,
+  formContainer: {
+    height: 125,
     backgroundColor: '#E11933',
     borderRadius: 5,
+    padding: 15,
     margin: 5
   },
-  row: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  sectionStyle: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  formRound: {
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
     borderWidth: 1,
     borderColor: '#fff',
     height: 40,
-    borderRadius: 5,
-    margin: 10
+    borderRadius: 5
+  },
+  formRoundBot: {
+    marginTop: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#fff',
+    height: 40,
+    borderRadius: 5
   },
   imageStyle: {
-    padding: 10,
-    margin: 5,
+    marginHorizontal: 8,
     height: 25,
-    width: 25,
-    resizeMode: 'stretch',
-    alignItems: 'center'
+    width: 25
   },
   logo: {
     marginTop: height / 6,
@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 5,
     height: 150,
-    width: 150,
-    resizeMode: 'stretch',
+    width: 150
   }
 });

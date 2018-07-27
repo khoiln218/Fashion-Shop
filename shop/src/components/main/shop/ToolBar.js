@@ -37,7 +37,7 @@ export default class ToolBar extends Component {
 
 const styles = StyleSheet.create({
     wrapper: {
-        height: height / 20,
+        height: height / 15,
         backgroundColor: '#E11933',
         padding: 10,
         justifyContent: 'space-around'
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
       marginLeft: 10
     },
     iconStyle: {
-      width: 15,
-      height: 15
+      width: 20,
+      height: 20
     }
 });
