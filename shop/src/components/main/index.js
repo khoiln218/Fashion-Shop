@@ -25,7 +25,7 @@ export default class Main extends Component {
             closeMenu={this.closeControlPanel} page={page}
           />
         }
-        openDrawerOffset={0.3}
+        openDrawerOffset={0.5}
         type="overlay"
         tapToClose
       >
