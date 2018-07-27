@@ -7,14 +7,14 @@ import {
 } from 'react-native';
 
 import ToolBar from './ToolBar';
-import CuaHang from './cuahang/';
-import BanHang from './banhang/';
+import CuaHang from './cuahang';
+import BanHang from './banhang';
 import KiemHang from './kiemhang';
 import Selfie from './selfie';
 import SanPhamKhac from './sanphamkhac';
 import LichLamViec from './lichlamviec';
 
-export default class MainPage extends Component {
+export default class Shop extends Component {
   getTitle(name) {
     switch (name) {
       case 'CuaHang':

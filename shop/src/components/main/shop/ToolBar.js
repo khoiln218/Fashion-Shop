@@ -10,8 +10,8 @@ import {
   Image
 } from 'react-native';
 
-import icLogo from '../../media/appIcon/ic_logo.png';
-import icMenu from '../../media/appIcon/ic_menu.png';
+import icLogo from '../../../media/appIcon/ic_logo.png';
+import icMenu from '../../../media/appIcon/ic_menu.png';
 
 const { height } = Dimensions.get('window');
 

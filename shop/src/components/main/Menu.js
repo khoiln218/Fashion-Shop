@@ -59,7 +59,7 @@ export default class Menu extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the Home component</Text>
+        <Text>I'm the Menu component</Text>
         <View style={{ flex: 1, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
           <TouchableOpacity onPress={this.gotoCuaHang.bind(this)}>
             <Text style={this.getStyleText('CuaHang')}>Cửa hàng</Text>

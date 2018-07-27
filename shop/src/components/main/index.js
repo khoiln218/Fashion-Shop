@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Drawer from 'react-native-drawer';
 
 import Menu from './Menu';
-import MainPage from './MainPage';
+import Shop from './shop';
 
 export default class Main extends Component {
   closeControlPanel = () => {
@@ -29,7 +29,7 @@ export default class Main extends Component {
         type="overlay"
         tapToClose
       >
-        <MainPage navigation={this.props.navigation} openMenu={this.openControlPanel} page={page} />
+        <Shop navigation={this.props.navigation} openMenu={this.openControlPanel} page={page} />
       </Drawer>
     );
   }
