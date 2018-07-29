@@ -7,10 +7,19 @@ import {
   StyleSheet,
   TextInput,
   Image,
-  Dimensions
+  Dimensions,
+  FlatList,
+  TouchableOpacity
 } from 'react-native';
 
 import icSearch from '../../../../media/appIcon/search.png';
+import icArrow from '../../../../media/appIcon/chevron-right.png';
+
+const data = [
+  { id: '1', name: 'Điện tử(AV)' },
+  { id: '2', name: 'Điện lạnh(HV)' },
+  { id: '3', name: 'Điện gia dụng' }
+];
 
 export default class BanHang extends Component {
   constructor(props) {
@@ -27,14 +36,26 @@ export default class BanHang extends Component {
             <TextInput
               style={styles.searchTxt}
               onChangeText={(key) => this.setState({ key })}
-              placeholder="Tìm kiếm sản phẩm"
+              placeholder="Tìm kiếm sản phẩm..."
               underlineColorAndroid="transparent"
               value={this.state.key}
             />
             <Image source={icSearch} style={styles.icon} />
           </View>
         </View>
-        <Text>I'm the BanHang component</Text>
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 15 }}>
+                <Text style={{ fontSize: 20, marginLeft: 15 }}>{item.name}</Text>
+                <Image source={icArrow} style={{ width: 48, height: 48 }} />
+              </View>
+              <View style={{ height: 1, backgroundColor: '#F1F1F1' }} />
+            </TouchableOpacity>
+          )}
+        />
       </View>
     );
   }
@@ -45,7 +66,7 @@ const { height, width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#295381'
+    backgroundColor: '#FFFFFF'
   },
   searchContainer: {
     height: height / 15,

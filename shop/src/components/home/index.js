@@ -11,7 +11,12 @@ import {
 } from 'react-native';
 
 import icLogo from '../../media/appIcon/ic-logo.jpg';
-import icPerson from '../../media/appIcon/ic_person.png';
+import icBanHang from '../../media/appIcon/map-marker_white.png';
+import icLichLamViec from '../../media/appIcon/calendar-text_white.png';
+import icSelfie from '../../media/appIcon/camera_white.png';
+import icCuaHang from '../../media/appIcon/cart-outline_white.png';
+import icKiemHang from '../../media/appIcon/checkbox-marked_white.png';
+import icSanPhamKhac from '../../media/appIcon/dropbox_white.png';
 
 export default class Home extends Component {
   gotoCuaHang() {
@@ -46,28 +51,28 @@ export default class Home extends Component {
         </View>
         <View style={styles.body}>
           <TouchableOpacity style={styles.itemTL} onPress={this.gotoCuaHang.bind(this)}>
-            <Image source={icPerson} style={styles.imageStyle} />
-            <Text>Cửa hàng</Text>
+            <Image source={icCuaHang} style={styles.imageStyle} />
+            <Text style={{ color: 'white' }}>Cửa hàng</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.itemTR} onPress={this.gotoBanHang.bind(this)}>
-            <Image source={icPerson} style={styles.imageStyle} />
-            <Text>Bán hàng</Text>
+            <Image source={icBanHang} style={styles.imageStyle} />
+            <Text style={{ color: 'white' }}>Bán hàng</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.item} onPress={this.gotoKiemHang.bind(this)}>
-            <Image source={icPerson} style={styles.imageStyle} />
-            <Text>Kiểm hàng</Text>
+            <Image source={icKiemHang} style={styles.imageStyle} />
+            <Text style={{ color: 'white' }}>Kiểm hàng</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.item} onPress={this.gotoSelfie.bind(this)}>
-            <Image source={icPerson} style={styles.imageStyle} />
-            <Text>Selfie</Text>
+            <Image source={icSelfie} style={styles.imageStyle} />
+            <Text style={{ color: 'white' }}>Selfie</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.itemBL} onPress={this.gotoSanPhamKhac.bind(this)}>
-            <Image source={icPerson} style={styles.imageStyle} />
-            <Text>Sản phẩm khác</Text>
+            <Image source={icSanPhamKhac} style={styles.imageStyle} />
+            <Text style={{ color: 'white' }}>Sản phẩm khác</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.itemBR} onPress={this.gotoLichLamViec.bind(this)}>
-            <Image source={icPerson} style={styles.imageStyle} />
-            <Text>Lịch làm việc</Text>
+            <Image source={icLichLamViec} style={styles.imageStyle} />
+            <Text style={{ color: 'white' }}>Lịch làm việc</Text>
           </TouchableOpacity>
         </View>
         <TouchableOpacity style={styles.logoutBtn}>

@@ -11,7 +11,12 @@ import {
 } from 'react-native';
 
 import icMenu from '../../media/appIcon/ic_menu.png';
-import icPerson from '../../media/appIcon/ic_person.png';
+import icCuaHang from '../../media/appIcon/map-marker.png';
+import icLichLamViec from '../../media/appIcon/calendar-text.png';
+import icSelfie from '../../media/appIcon/camera.png';
+import icBanHang from '../../media/appIcon/cart-outline.png';
+import icKiemHang from '../../media/appIcon/checkbox-marked.png';
+import icSanPhamKhac from '../../media/appIcon/dropbox.png';
 import profileIcon from '../../media/asset/profile.png';
 
 export default class Menu extends Component {
@@ -76,30 +81,35 @@ export default class Menu extends Component {
         </View>
         <View style={profileContainer}>
           <Image source={profileIcon} style={profile} />
-          <Text style={{ color: 'white' }}>Lê Ngọc Khôi</Text>
+          <Text style={{ color: 'white' }}>MS.90998</Text>
         </View>
         <TouchableOpacity style={styles.item} onPress={this.gotoBanHang.bind(this)}>
-          <Image source={icPerson} style={styles.imageStyle} />
+          <Image source={icCuaHang} style={styles.imageStyle} />
           <Text style={this.getStyleText('BanHang')}>BÁN HÀNG</Text>
         </TouchableOpacity>
+        <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoCuaHang.bind(this)}>
-          <Image source={icPerson} style={styles.imageStyle} />
+          <Image source={icBanHang} style={styles.imageStyle} />
           <Text style={this.getStyleText('CuaHang')}>CỬA HÀNG</Text>
         </TouchableOpacity>
+        <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoSelfie.bind(this)}>
-          <Image source={icPerson} style={styles.imageStyle} />
+          <Image source={icSelfie} style={styles.imageStyle} />
           <Text style={this.getStyleText('Selfie')}>SELFIE</Text>
         </TouchableOpacity>
+        <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoKiemHang.bind(this)}>
-          <Image source={icPerson} style={styles.imageStyle} />
+          <Image source={icKiemHang} style={styles.imageStyle} />
           <Text style={this.getStyleText('KiemHang')}>KIỂM HÀNG</Text>
         </TouchableOpacity>
+        <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoSanPhamKhac.bind(this)}>
-          <Image source={icPerson} style={styles.imageStyle} />
+          <Image source={icSanPhamKhac} style={styles.imageStyle} />
           <Text style={this.getStyleText('SanPhamKhac')}>SẢN PHẨM KHÁC</Text>
         </TouchableOpacity>
+        <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoLichLamViec.bind(this)}>
-          <Image source={icPerson} style={styles.imageStyle} />
+          <Image source={icLichLamViec} style={styles.imageStyle} />
           <Text style={this.getStyleText('LichLamViec')}>LỊCH LÀM VIỆC</Text>
         </TouchableOpacity>
       </View>
@@ -152,7 +162,7 @@ const styles = StyleSheet.create({
   },
   item: {
     flexDirection: 'row',
-    paddingVertical: 20,
+    paddingVertical: 15,
     marginLeft: 8
   },
   imageStyle: {
