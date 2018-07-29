@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   loginBtn: {
-    margin: 5,
+    margin: 10,
     padding: 8,
     borderRadius: 5,
     backgroundColor: '#E11933'
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E11933',
     borderRadius: 5,
     padding: 15,
-    margin: 5
+    margin: 10
   },
   formRound: {
     alignItems: 'center',
