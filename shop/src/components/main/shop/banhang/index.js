@@ -48,7 +48,7 @@ export default class BanHang extends Component {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <TouchableOpacity>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 15 }}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 15 }}>
                 <Text style={{ fontSize: 20, marginLeft: 15 }}>{item.name}</Text>
                 <Image source={icArrow} style={{ width: 48, height: 48 }} />
               </View>

@@ -10,13 +10,9 @@ import {
   Dimensions
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import icMenu from '../../media/appIcon/ic_menu.png';
-import icCuaHang from '../../media/appIcon/map-marker.png';
-import icLichLamViec from '../../media/appIcon/calendar-text.png';
-import icSelfie from '../../media/appIcon/camera.png';
-import icBanHang from '../../media/appIcon/cart-outline.png';
-import icKiemHang from '../../media/appIcon/checkbox-marked.png';
-import icSanPhamKhac from '../../media/appIcon/dropbox.png';
 import profileIcon from '../../media/asset/profile.png';
 
 export default class Menu extends Component {
@@ -30,6 +26,13 @@ export default class Menu extends Component {
       return { color: 'white' };
     }
     return styles.buttonText;
+  }
+  getColorImage(name) {
+    const { highlight } = this.state;
+    if (name === highlight) {
+      return '#FFFFFF';
+    }
+    return '#4C4C4C';
   }
   gotoCuaHang() {
     this.props.closeMenu();
@@ -84,32 +87,32 @@ export default class Menu extends Component {
           <Text style={{ color: 'white' }}>MS.90998</Text>
         </View>
         <TouchableOpacity style={styles.item} onPress={this.gotoBanHang.bind(this)}>
-          <Image source={icCuaHang} style={styles.imageStyle} />
+          <Icon style={{ marginRight: 12 }} name='map-marker' size={25} color={this.getColorImage('BanHang')} />
           <Text style={this.getStyleText('BanHang')}>BÁN HÀNG</Text>
         </TouchableOpacity>
         <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoCuaHang.bind(this)}>
-          <Image source={icBanHang} style={styles.imageStyle} />
+          <Icon style={{ marginRight: 12 }} name='cart-outline' size={25} color={this.getColorImage('CuaHang')} />
           <Text style={this.getStyleText('CuaHang')}>CỬA HÀNG</Text>
         </TouchableOpacity>
         <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoSelfie.bind(this)}>
-          <Image source={icSelfie} style={styles.imageStyle} />
+          <Icon style={{ marginRight: 12 }} name='camera' size={25} color={this.getColorImage('Selfie')} />
           <Text style={this.getStyleText('Selfie')}>SELFIE</Text>
         </TouchableOpacity>
         <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoKiemHang.bind(this)}>
-          <Image source={icKiemHang} style={styles.imageStyle} />
+          <Icon style={{ marginRight: 12 }} name='checkbox-marked' size={25} color={this.getColorImage('KiemHang')} />
           <Text style={this.getStyleText('KiemHang')}>KIỂM HÀNG</Text>
         </TouchableOpacity>
         <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoSanPhamKhac.bind(this)}>
-          <Image source={icSanPhamKhac} style={styles.imageStyle} />
+          <Icon style={{ marginRight: 12 }} name='dropbox' size={25} color={this.getColorImage('SanPhamKhac')} />
           <Text style={this.getStyleText('SanPhamKhac')}>SẢN PHẨM KHÁC</Text>
         </TouchableOpacity>
         <View style={{ height: 1, backgroundColor: '#1B1B1B' }} />
         <TouchableOpacity style={styles.item} onPress={this.gotoLichLamViec.bind(this)}>
-          <Image source={icLichLamViec} style={styles.imageStyle} />
+          <Icon style={{ marginRight: 12 }} name='calendar-text' size={25} color={this.getColorImage('LichLamViec')} />
           <Text style={this.getStyleText('LichLamViec')}>LỊCH LÀM VIỆC</Text>
         </TouchableOpacity>
       </View>
@@ -139,6 +142,8 @@ const styles = StyleSheet.create({
   },
   left: {
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   titleStyle: {
     color: '#FFF',
@@ -162,6 +167,7 @@ const styles = StyleSheet.create({
   },
   item: {
     flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: 15,
     marginLeft: 8
   },

@@ -11,9 +11,9 @@ import {
   Dimensions
 } from 'react-native';
 
-import icPerson from '../../media/appIcon/ic_person.png';
+import icAccount from '../../media/appIcon/account-box.png';
 import icPass from '../../media/appIcon/lock-question.png';
-import icLogo from '../../media/appIcon/ic-logo.jpg';
+import icLogo from '../../media/appIcon/ic-logo.png';
 
 export default class LogIn extends Component {
   constructor(props) {
@@ -31,11 +31,11 @@ export default class LogIn extends Component {
     return (
       <View style={styles.container}>
           <View style={styles.logo}>
-            <Image source={icLogo} style={styles.logoStyle} />
+            <Image source={icLogo} style={styles.logoStyle} resizeMode='center' />
           </View>
           <View style={styles.formContainer}>
             <View style={styles.formRound}>
-              <Image source={icPerson} style={styles.imageStyle} />
+              <Image source={icAccount} style={styles.imageStyle} />
               <TextInput
                   style={styles.textInput}
                   onChangeText={(account) => this.setState({ account })}
@@ -70,6 +70,7 @@ export default class LogIn extends Component {
 }
 
 const { height } = Dimensions.get('window');
+const scale = 382 / 132;
 
 const styles = StyleSheet.create({
   container: {
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
   logoStyle: {
     padding: 10,
     margin: 5,
-    height: 150,
-    width: 150
+    height: 100,
+    width: scale * 100
   }
 });

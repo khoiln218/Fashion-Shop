@@ -10,7 +10,7 @@ import {
   Image
 } from 'react-native';
 
-import icLogo from '../../media/appIcon/ic-logo.jpg';
+import icLogo from '../../media/appIcon/ic-logo.png';
 import icBanHang from '../../media/appIcon/map-marker_white.png';
 import icLichLamViec from '../../media/appIcon/calendar-text_white.png';
 import icSelfie from '../../media/appIcon/camera_white.png';
@@ -86,6 +86,7 @@ export default class Home extends Component {
 const { width, height } = Dimensions.get('window');
 const itemWidth = (width - 22) / 2;
 const itemHeight = (height - 200) / 3;
+const scale = 382 / 132;
 
 const styles = StyleSheet.create({
   container: {
@@ -160,13 +161,14 @@ const styles = StyleSheet.create({
     padding: 5
   },
   logo: {
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 20
   },
   logoStyle: {
     padding: 10,
     margin: 5,
-    height: 60,
-    width: 150,
+    height: 50,
+    width: scale * 50,
     resizeMode: 'stretch',
   },
   imageStyle: {

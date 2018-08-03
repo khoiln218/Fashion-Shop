@@ -37,10 +37,10 @@ export default class ToolBar extends Component {
 
 const styles = StyleSheet.create({
     wrapper: {
-        height: height / 15,
-        backgroundColor: '#E11933',
-        padding: 10,
-        justifyContent: 'space-around'
+      height: height / 15,
+      backgroundColor: '#E11933',
+      padding: 10,
+      justifyContent: 'space-around'
     },
     row1: {
       flexDirection: 'row',
@@ -48,6 +48,8 @@ const styles = StyleSheet.create({
     },
     left: {
       flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     titleStyle: {
       color: '#FFF',
