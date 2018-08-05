@@ -18,6 +18,10 @@ export default class Selfie extends Component {
     const { navigation } = this.props;
     navigation.push('Selfie');
   }
+  gotoSharp() {
+    const { navigation } = this.props;
+    navigation.push('Sharp');
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -31,7 +35,7 @@ export default class Selfie extends Component {
           </View>
           <View style={{ height: 1, backgroundColor: '#F1F1F1' }} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.gotoSharp.bind(this)}>
           <View style={styles.wrapper}>
             <View style={styles.left}>
               <Icon style={{ margin: 12 }} name='store' size={30} color='#000000' />

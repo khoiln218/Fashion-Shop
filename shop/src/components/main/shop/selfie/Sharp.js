@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 
-export default class Selfie extends React.Component {
+export default class Sharp extends React.Component {
   takePicture = async () => {
     if (this.camera) {
       const options = { base64: true };
@@ -28,7 +28,7 @@ export default class Selfie extends React.Component {
             this.camera = ref;
           }}
           style={styles.preview}
-          type={RNCamera.Constants.Type.front}
+          type={RNCamera.Constants.Type.back}
           flashMode={RNCamera.Constants.FlashMode.on}
           permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={'We need your permission to use your camera phone'}
@@ -39,7 +39,7 @@ export default class Selfie extends React.Component {
             <Text style={{ color: 'white' }}>Quay Lại</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.saveButton} onPress={this.takePicture.bind(this)}>
-            <Text style={{ color: 'white' }}>Lưu</Text>
+            <Text style={{ color: 'white' }}>Gửi</Text>
           </TouchableOpacity>
         </View>
       </RNCamera>
