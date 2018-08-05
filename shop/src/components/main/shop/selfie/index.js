@@ -14,10 +14,14 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import icArrow from '../../../../media/appIcon/chevron-right.png';
 
 export default class Selfie extends Component {
+  gotoSelfie() {
+    const { navigation } = this.props;
+    navigation.push('Selfie');
+  }
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.gotoSelfie.bind(this)}>
           <View style={styles.wrapper}>
             <View style={styles.left}>
               <Icon style={{ margin: 12 }} name='camera' size={30} color='#000000' />

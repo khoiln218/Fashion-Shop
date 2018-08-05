@@ -10,16 +10,18 @@ import {
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
-import Main from './main/';
-import LogIn from './login/';
-import Home from './home/';
+import Main from './main';
+import LogIn from './login';
+import Home from './home';
+import Selfie from './main/shop/selfie/Selfie';
 
 StatusBar.setHidden(true);
 
 const AppStack = createStackNavigator({
   Main,
   LogIn,
-  Home
+  Home,
+  Selfie
 },
 {
   initialRouteName: 'LogIn',
