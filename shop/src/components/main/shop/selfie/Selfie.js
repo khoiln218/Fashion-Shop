@@ -1,18 +1,44 @@
 /* @flow */
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
+import { RNCamera } from 'react-native-camera';
 
-export default class Selfie extends Component {
+export default class CameraExample extends React.Component {
+  takePicture = async () => {
+    if (this.camera) {
+      const options = { quality: 0.5, base64: true };
+      const data = await this.camera.takePictureAsync(options);
+      console.log(data.uri);
+    }
+  };
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>I'm Selfie component</Text>
-      </View>
+      return (
+      <RNCamera
+          ref={ref => {
+            this.camera = ref;
+          }}
+          style={styles.preview}
+          type={RNCamera.Constants.Type.front}
+          flashMode={RNCamera.Constants.FlashMode.on}
+          permissionDialogTitle={'Permission to use camera'}
+          permissionDialogMessage={'We need your permission to use your camera phone'}
+      >
+        <View style={styles.wraper} />
+        <View style={styles.bottom}>
+          <TouchableOpacity style={styles.backButton}>
+            <Text style={{ color: 'white' }}>Quay Lại</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.saveButton} onPress={this.takePicture.bind(this)}>
+            <Text style={{ color: 'white' }}>Lưu</Text>
+          </TouchableOpacity>
+        </View>
+      </RNCamera>
     );
   }
 }
@@ -20,6 +46,7 @@ export default class Selfie extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: 'black'
   },
   preview: {
@@ -27,13 +54,40 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
+  wraper: {
+    flex: 90,
+    marginTop: 30,
+    alignItems: 'center'
+  },
+  textInput: {
+    margin: 15,
+    borderRadius: 20,
+    paddingHorizontal: 30,
+    paddingVertical: 0,
+    backgroundColor: '#F1F1F1'
+  },
+  bottom: {
+    paddingVertical: 10,
+    flex: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  backButton: {
+    marginHorizontal: 15,
     borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
-    alignSelf: 'center',
-    margin: 20
+    backgroundColor: '#494949',
+    paddingVertical: 15,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  saveButton: {
+    marginHorizontal: 15,
+    borderRadius: 5,
+    backgroundColor: '#E11933',
+    paddingVertical: 15,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
