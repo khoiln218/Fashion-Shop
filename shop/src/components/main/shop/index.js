@@ -40,9 +40,9 @@ export default class Shop extends Component {
       case 'KiemHang':
         return <KiemHang />;
       case 'Selfie':
-        return <Selfie navigation={this.props.navigation} />;
+        return <Selfie />;
       case 'SanPhamKhac':
-        return <SanPhamKhac navigation={this.props.navigation} />;
+        return <SanPhamKhac />;
       default:
         return <LichLamViec />;
     }

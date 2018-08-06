@@ -13,17 +13,13 @@ import { createStackNavigator } from 'react-navigation';
 import Main from './main';
 import LogIn from './login';
 import Home from './home';
-import Selfie from './main/shop/selfie/Selfie';
-import Sharp from './main/shop/selfie/Sharp';
 
 StatusBar.setHidden(true);
 
 const AppStack = createStackNavigator({
   Main,
   LogIn,
-  Home,
-  Selfie,
-  Sharp
+  Home
 },
 {
   initialRouteName: 'LogIn',
