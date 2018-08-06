@@ -42,7 +42,7 @@ export default class Shop extends Component {
       case 'Selfie':
         return <Selfie navigation={this.props.navigation} />;
       case 'SanPhamKhac':
-        return <SanPhamKhac />;
+        return <SanPhamKhac navigation={this.props.navigation} />;
       default:
         return <LichLamViec />;
     }

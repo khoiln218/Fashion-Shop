@@ -14,10 +14,14 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import icArrow from '../../../../media/appIcon/chevron-right.png';
 
 export default class SanPhamKhac extends Component {
+  gotoSharp() {
+    const { navigation } = this.props;
+    navigation.push('Sharp');
+  }
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.gotoSharp.bind(this)}>
           <View style={styles.wrapper}>
             <View style={styles.left}>
               <Icon style={{ margin: 12 }} name='camera' size={30} color='#000000' />
