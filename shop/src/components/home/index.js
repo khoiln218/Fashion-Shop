@@ -43,6 +43,10 @@ export default class Home extends Component {
     const { navigation } = this.props;
     navigation.navigate('Main', { page: 'LichLamViec' });
   }
+  logout() {
+    const { navigation } = this.props;
+    navigation.goBack();
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -75,7 +79,7 @@ export default class Home extends Component {
             <Text style={{ color: 'white' }}>Lịch làm việc</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.logoutBtn}>
+        <TouchableOpacity style={styles.logoutBtn} onPress={this.logout.bind(this)}>
           <Text style={styles.logoutText}>ĐĂNG XUẤT</Text>
         </TouchableOpacity>
       </View>

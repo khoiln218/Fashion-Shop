@@ -9,12 +9,14 @@ import {
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 
+import saveAvatar from '../../../../api/saveAvatar';
+
 export default class Selfie extends React.Component {
   takePicture = async () => {
     if (this.camera) {
-      const options = { base64: true };
+      const options = { quality: 0.2, base64: true };
       const data = await this.camera.takePictureAsync(options);
-      console.log(data.base64);
+      saveAvatar(data.base64);
     }
   };
   goBack() {

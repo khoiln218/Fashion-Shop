@@ -48,10 +48,10 @@ export default class Shop extends Component {
     }
   }
   render() {
-    const { page } = this.props;
+    const { page, navigation } = this.props;
     return (
       <View style={styles.container}>
-        <ToolBar onOpen={this.props.openMenu} title={this.getTitle(page)} />
+        <ToolBar navigation={navigation} onOpen={this.props.openMenu} title={this.getTitle(page)} />
         {this.getScreen(page)}
       </View>
     );

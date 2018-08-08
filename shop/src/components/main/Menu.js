@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import getAvatar from '../../api/getAvatar';
 
 import icMenu from '../../media/appIcon/ic_menu.png';
 import profileIcon from '../../media/asset/profile.png';
@@ -18,7 +19,10 @@ import profileIcon from '../../media/asset/profile.png';
 export default class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = { highlight: this.props.page };
+    this.state = { highlight: this.props.page, avatar: profileIcon };
+  }
+  componentDidMount() {
+    this.renderAvatar();
   }
   getStyleText(name) {
     const { highlight } = this.state;
@@ -70,6 +74,12 @@ export default class Menu extends Component {
     navigation.navigate('Main', { page: 'LichLamViec' });
     this.setState({ highlight: 'LichLamViec' });
   }
+  renderAvatar = async () => {
+    const avatar = await getAvatar();
+    if (avatar !== '') {
+      this.setState({ avatar: { uri: `data:image/png;base64,${avatar}` } });
+    }
+  }
   render() {
     const { wrapper, row1, left, iconStyle, titleStyle, profile, profileContainer } = styles;
     return (
@@ -83,7 +93,7 @@ export default class Menu extends Component {
           </View>
         </View>
         <View style={profileContainer}>
-          <Image source={profileIcon} style={profile} />
+          <Image source={this.state.avatar} style={profile} />
           <Text style={{ color: 'white' }}>MS.90998</Text>
         </View>
         <TouchableOpacity style={styles.item} onPress={this.gotoBanHang.bind(this)}>
@@ -157,7 +167,7 @@ const styles = StyleSheet.create({
   profileContainer: {
       backgroundColor: '#E11933',
       alignItems: 'center',
-      paddingVertical: 30
+      paddingVertical: 15
   },
   profile: {
       width: 100,

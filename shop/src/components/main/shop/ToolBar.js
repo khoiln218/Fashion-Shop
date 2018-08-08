@@ -16,6 +16,10 @@ import icMenu from '../../../media/appIcon/ic_menu.png';
 const { height } = Dimensions.get('window');
 
 export default class ToolBar extends Component {
+  gotoHome() {
+    const { navigation } = this.props;
+    navigation.goBack();
+  }
   render() {
     const { wrapper, row1, left, iconStyle, titleStyle } = styles;
     const { title } = this.props;
@@ -24,11 +28,13 @@ export default class ToolBar extends Component {
             <View style={row1}>
               <View style={left}>
                 <TouchableOpacity onPress={this.props.onOpen}>
-                    <Image source={icMenu} style={iconStyle} />
+                  <Image source={icMenu} style={iconStyle} />
                 </TouchableOpacity>
                 <Text style={titleStyle}>{title}</Text>
               </View>
-              <Image source={icLogo} style={iconStyle} />
+              <TouchableOpacity onPress={this.gotoHome.bind(this)}>
+                <Image source={icLogo} style={iconStyle} />
+              </TouchableOpacity>
             </View>
         </View>
     );
