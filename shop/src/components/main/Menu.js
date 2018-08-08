@@ -9,20 +9,20 @@ import {
   Image,
   Dimensions
 } from 'react-native';
+import { connect } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import getAvatar from '../../api/getAvatar';
+import { loadAvatar } from '../../redux/action';
 
 import icMenu from '../../media/appIcon/ic_menu.png';
-import profileIcon from '../../media/asset/profile.png';
 
-export default class Menu extends Component {
+class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = { highlight: this.props.page, avatar: profileIcon };
+    this.state = { highlight: this.props.page };
   }
   componentDidMount() {
-    this.renderAvatar();
+    this.props.loadAvatar();
   }
   getStyleText(name) {
     const { highlight } = this.state;
@@ -74,14 +74,9 @@ export default class Menu extends Component {
     navigation.navigate('Main', { page: 'LichLamViec' });
     this.setState({ highlight: 'LichLamViec' });
   }
-  renderAvatar = async () => {
-    const avatar = await getAvatar();
-    if (avatar !== '') {
-      this.setState({ avatar: { uri: `data:image/png;base64,${avatar}` } });
-    }
-  }
   render() {
     const { wrapper, row1, left, iconStyle, titleStyle, profile, profileContainer } = styles;
+    const { avatar } = this.props;
     return (
       <View style={styles.container}>
         <View style={wrapper}>
@@ -93,7 +88,7 @@ export default class Menu extends Component {
           </View>
         </View>
         <View style={profileContainer}>
-          <Image source={this.state.avatar} style={profile} />
+          <Image source={avatar} style={profile} />
           <Text style={{ color: 'white' }}>MS.90998</Text>
         </View>
         <TouchableOpacity style={styles.item} onPress={this.gotoBanHang.bind(this)}>
@@ -187,3 +182,11 @@ const styles = StyleSheet.create({
     marginRight: 12
   }
 });
+
+function mapStateToProps(state) {
+  return {
+    avatar: state.avatar.avatar
+  };
+}
+
+export default connect(mapStateToProps, { loadAvatar })(Menu);

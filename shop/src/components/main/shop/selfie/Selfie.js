@@ -8,15 +8,19 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { RNCamera } from 'react-native-camera';
+import { connect } from 'react-redux';
+
+import { updateAvatar } from '../../../../redux/action';
 
 import saveAvatar from '../../../../api/saveAvatar';
 
-export default class Selfie extends React.Component {
+class Selfie extends React.Component {
   takePicture = async () => {
     if (this.camera) {
       const options = { quality: 0.2, base64: true };
       const data = await this.camera.takePictureAsync(options);
       saveAvatar(data.base64);
+      this.props.updateAvatar(data.base64);
     }
   };
   goBack() {
@@ -88,3 +92,5 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+export default connect(null, { updateAvatar })(Selfie);

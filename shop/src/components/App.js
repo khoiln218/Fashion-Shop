@@ -9,6 +9,9 @@ import {
   StatusBar
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+
+import store from '../redux/store';
 
 import Main from './main';
 import LogIn from './login';
@@ -30,6 +33,10 @@ const AppStack = createStackNavigator({
 
 export default class App extends Component {
   render() {
-    return <AppStack />;
+    return (
+      <Provider store={store}>
+        <AppStack />
+      </Provider>
+    );
   }
 }
